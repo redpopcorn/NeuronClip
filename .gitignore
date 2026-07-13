@@ -1,0 +1,33 @@
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Python cache and testing
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+*.wav
+*.mp4
+*.mp3
+
+# Project data and local runs
+data/
+optimization_report.json
+out_test.json
+out_test.wav
+transcript.json
+
+# NextJS frontend artifacts
+frontend/.next/
+frontend/node_modules/
+frontend/.env*.local
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
