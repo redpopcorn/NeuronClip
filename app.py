@@ -18,3 +18,7 @@ with gr.Blocks() as demo:
 # Mount Gradio interface inside our FastAPI application
 app = fastapi_app
 app = gr.mount_gradio_app(app, demo, path="/status")
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=7860)
