@@ -78,8 +78,17 @@ export function ClipsView() {
                 {Math.round(clip.scores?.overall ?? 0)}
               </Badge>
             </div>
-            <div className="mt-4 overflow-hidden rounded-2xl border border-white/10">
-              <div className="h-48 bg-gradient-to-br from-white/5 to-white/10" />
+            <div className="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-black">
+              {clip.download_url ? (
+                <video
+                  src={`${API_BASE}${clip.download_url}`}
+                  controls
+                  playsInline
+                  className="w-full h-48 object-cover"
+                />
+              ) : (
+                <div className="h-48 bg-gradient-to-br from-white/5 to-white/10" />
+              )}
             </div>
             <div className="mt-4 flex items-center justify-between text-sm text-white/60">
               <span>Auto captions · 9:16</span>
