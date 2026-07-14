@@ -12,6 +12,7 @@ __pycache__/
 htmlcov/
 *.wav
 *.mp4
+!frontend/public/hero_clip.mp4
 *.mp3
 
 # Project data and local runs
