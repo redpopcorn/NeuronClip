@@ -13,12 +13,11 @@ from server.main import app as fastapi_app
 # Simple Gradio interface to satisfy Hugging Face and show status
 with gr.Blocks() as demo:
     gr.Markdown("# 🚀 ClipNeuron API Backend")
-    gr.Markdown("This Hugging Face Space hosts the ClipNeuron FastAPI backend. The API endpoints are accessible at the root `/` URL.")
+    gr.Markdown("This Hugging Face Space hosts the ClipNeuron FastAPI backend. The API endpoints are accessible under the `/api` prefix.")
 
-# Mount Gradio interface inside our FastAPI application
-app = fastapi_app
-app = gr.mount_gradio_app(app, demo, path="/status")
+# Mount our FastAPI app under /api on Gradio's FastAPI app.
+# This allows Gradio to manage the server lifecycle and port bindings automatically.
+demo.app.mount("/api", fastapi_app)
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=7860)
+# Launch Gradio (this automatically binds to the correct port and blocks)
+demo.launch()
